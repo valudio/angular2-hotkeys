@@ -1,4 +1,8 @@
 # angular2-hotkeys
+
+> Angular 2 Hotkeys. This is a fork of `https://github.com/brtnshrdr/angular2-hotkeys`.
+This forks exists due to the necessity of getting rid of .ts files when using it as a npm dependency.
+
 Angular 2.2.x Compatible
 ## Installation
 
