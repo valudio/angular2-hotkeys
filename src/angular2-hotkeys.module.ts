@@ -1,22 +1,27 @@
-import { ModuleWithProviders, NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule, ModuleWithProviders } from '@angular/core';
+// import { CommonModule } from '@angular/common';
 
-
-import { HotkeyOptions, IHotkeyOptions } from './models/hotkey.options';
-import { CheatSheetComponent } from './directives/cheatsheet.component';
+// import { CheatSheetComponent } from './directives/cheatsheet.component';
 import { Hotkeys } from './directives/hotkeys.directive';
 import { HotkeysService } from './services/hotkeys.service';
-
-
-export * from './directives/cheatsheet.component';
-export * from './directives/hotkeys.directive';
-export * from './services/hotkeys.service';
-export * from './models/hotkey.model';
+import { HotkeyOptions, IHotkeyOptions } from './models/hotkey.options';
 
 @NgModule({
-  imports : [ CommonModule ],
-  exports : [ Hotkeys, CheatSheetComponent ],
-  declarations : [ Hotkeys, CheatSheetComponent ]
+  // imports: [
+  //   CommonModule
+  // ],
+  exports: [
+    Hotkeys,
+    // CheatSheetComponent,
+  ],
+  declarations: [
+    Hotkeys,
+    // CheatSheetComponent,
+  ],
+  providers: [
+    HotkeysService,
+    { provide: HotkeyOptions, useValue: HotkeyOptions }
+  ]
 })
 export class HotkeyModule {
   static forRoot(options: IHotkeyOptions = {}): ModuleWithProviders {

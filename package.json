@@ -1,11 +1,17 @@
 {
   "name": "@valudio/angular2-hotkeys",
-  "version": "0.5.0",
+  "version": "0.5.7",
   "scripts": {
-    "test": "ngc && karma start",
-    "prepublish": "ngc",
-    "tsc": "ngc",
-    "ngc": "ngc"
+    "build": "rimraf dist && tsc",
+    "prepublish": "npm run build",
+    "pretest": "npm run build",
+    "test": "pretest && karma start",
+    "version": "npm run build",
+    "postversion": "npm publish",
+    "rls": "npm --no-git-tag-version version",
+    "rls:patch": "npm run rls -- patch",
+    "rls:minor": "npm run rls -- minor",
+    "rls:major": "npm run rls -- major"
   },
   "repository": {
     "type": "git",
@@ -26,31 +32,24 @@
   "bugs": {
     "url": "git@github.com:brtnshrdr/angular2-hotkeys.git/issues"
   },
-  "main": "angular2-hotkeys.js",
-  "typings": "./angular2-hotkeys.d.ts",
-  "devDependencies": {
-    "@angular/common": "2.2.4",
-    "@angular/compiler": "2.2.4",
-    "@angular/compiler-cli": "2.2.4",
-    "@angular/core": "2.2.4",
-    "@angular/platform-server": "2.2.4",
-    "@angular/tsc-wrapped": "0.4.1",
-    "@types/core-js": "^0.9.34",
-    "reflect-metadata": "^0.1.3",
-    "rxjs": "5.0.0-beta.12",
-    "tslint": "4.0.2",
-    "typescript": "2.0.3",
-    "zone.js": "0.6.23"
-  },
-  "peerDependencies": {
-    "@angular/core": "^2.2.4",
-    "@angular/common": "^2.2.4"
-  },
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
   "dependencies": {
     "@types/mousetrap": "^1.5.32",
-    "mousetrap": "^1.6.0"
+    "mousetrap": "^1.6.0",
+    "@angular/common": "2.1.0",
+    "@angular/compiler": "2.1.0",
+    "@angular/core": "2.1.0",
+    "@angular/http": "2.1.0",
+    "@angular/platform-browser": "2.1.0",
+    "core-js": "^2.4.1",
+    "rxjs": "5.0.0-beta.12",
+    "systemjs": "0.19.27",
+    "zone.js": "^0.6.23"
   },
-  "engines": {
-    "node": ">=0.8.0"
+  "devDependencies": {
+    "rimraf": "^2.5.4",
+    "tslint": "^4.0.2",
+    "typescript": "^2.0.10"
   }
 }

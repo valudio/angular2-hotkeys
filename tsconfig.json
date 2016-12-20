@@ -1,23 +1,21 @@
 {
+  "compileOnSave": true,
   "compilerOptions": {
-    "noImplicitAny": true,
-    "module": "commonjs",
-    "target": "ES5",
+    "declaration": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "sourceMap": true,
-    "declaration": true
+    "target": "es6",
+    "noImplicitAny": false,
+    "removeComments": true,
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "watch": false,
+    "outDir": "dist"
   },
-  "angularCompilerOptions": {
-    "genDir": "compiled"
-  },
-  "typeRoots": [
-    "../node_modules/@types"
-  ],
-  "files": [
-    "angular2-hotkeys.ts"
-  ],
   "exclude": [
-    "node_modules"
+    "typings/",
+    "node_modules",
+    "dist"
   ]
 }
